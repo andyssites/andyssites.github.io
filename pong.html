@@ -146,14 +146,22 @@ function drawScoreboard(){
 	ctx.fillText(playerTwoScore,canvas.width - 10 * toString(playerTwoScore).length,50)
 }
 
+
+function drawMiddleLine(){
+	ctx.fillRect(canvas.width / 2, 0, 1, canvas.height);
+}
+
 function gameloop(){
 	clearCanvas();
+	
+	drawMiddleLine();
 	
 	drawPlayers();
 	
 	updateBall();
 	
 	drawScoreboard();
+	
 	
 	checkCollisions();
 }
