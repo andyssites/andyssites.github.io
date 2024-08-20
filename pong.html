@@ -1,14 +1,19 @@
 <head>
 	<title>Pong</title>
+	<link rel="icon" type="image/x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABg2lDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqDs0g4pChOtlFRTqWKhbBQmkrtOpgcukXNGlJUlwcBdeCgx+LVQcXZ10dXAVB8APE2cFJ0UVK/F9SaBHjwXE/3t173L0DhHaNaeZAHNB0y8gkE1K+sCoFXhGECAFhxGRmNlLZxRw8x9c9fHy9i/Is73N/jmG1aDLAJxHHWcOwiDeI5zatBud9YpFVZJX4nHjKoAsSP3JdcfmNc9lhgWeKRi4zTywSS+U+VvqYVQyNeJY4omo65Qt5l1XOW5y1WpN178lfGCrqK1mu0xxHEktIIQ0JCpqoogYLUVp1UkxkaD/h4R9z/GlyKeSqgpFjAXVokB0/+B/87tYszUy7SaEEMPhi2x8TQGAX6LRs+/vYtjsngP8ZuNJ7/nobiH2S3uppkSNgZBu4uO5pyh5wuQOMPjVkQ3YkP02hVALez+ibCkD4Fhhac3vr7uP0AchRV8s3wMEhMFmm7HWPdwf7e/v3TLe/H8PncsfxuP/dAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH6AgUAhU3VUQvMwAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAA5SURBVDjLY2SAgP8M5AFGRgo0MzAwMDAwMVAIWNCdRKS+/1RzwcAbMPCxQKkBjORGI8MwisaBNwAAcz4EIpvMtXcAAAAASUVORK5CYII=">
 </head>
 <body style="background-color:black;">
 <canvas id="gameCanvas" style="width:100%;height:100%;margin:0px;padding:0px;">The canvas tag is not supported :-(</canvas>
 </body>
 <script>
+
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const foregroundColor = "white";
 const backgroundColor = "black";
+var one = new Audio('1.wav');
+var two = new Audio('2.wav');
+var three = new Audio('3.wav');
 let playerSpeed = 20;
 let ballSpeed = 5;
 let playerOneY;
@@ -59,7 +64,7 @@ newRound();
 
 addEventListener("keydown", (event) => {
 	
-	// TODO - when x > 0, only let player 2 move but when x < 0, only let player1 move
+	
 	
 	if(ballX < canvas.width / 2){
 	switch(event.key){
@@ -116,15 +121,21 @@ function updateBall(){
 	
 }
 
+function bounce(){
+	ballDir += ballDir % 180;
+	
+}
+	
+
 function checkCollisions(){
 	// ball
 	
 	if(ballX < canvas.width / 2 && ballY > playerOneY && ballY + 200 > ballY && ballX < 60){ // if touching player1
-		ballDir += ballDir % 180;
+		bounce();
 	}
 	
 	if(ballX > canvas.width / 2 && ballY > playerTwoY && ballY + 200 > ballY && ballX > canvas.width - 60){ // if touching player2
-		ballDir += ballDir % 180;
+		bounce();
 	}
 	
 	if(ballX < 1){
@@ -136,12 +147,12 @@ function checkCollisions(){
 		newRound();
 	}
 	
-	if(ballY < 0){
-		ballDir += ballDir % 180;
+	if(ballY < 10){
+		bounce();
 	}
 	
 	if(ballY > canvas.height){
-		ballDir += ballDir % 180;
+		bounce();
 	}
 }
 
@@ -149,7 +160,7 @@ function drawScoreboard(){
 	ctx.font = "48px Pixelify Sans";
 	
 	ctx.fillText(playerOneScore,10,50);
-	ctx.fillText(playerTwoScore,canvas.width - 10 * toString(playerTwoScore).length,50)
+	ctx.fillText(playerTwoScore,canvas.width - 10 * toString(playerTwoScore).length,50);
 }
 
 
