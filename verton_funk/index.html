@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verton Funk | Listen to Music Online</title>
+    <link rel="icon" type="image/x-icon" href="static/verton_funk.svg">
+    <style>body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}</style>
+    <meta name="description" content="Verton Funk | Listen to Music Online">
+</head>
+<body onload='build_site();'>
+    <noscript class="noscript-error" style="font-weight:bolder;font-size:15px;color:red;">PLEASE TURN ON JAVASCRIPT TO USE VERTON FUNK</noscript>
+    <div class="js-content-container-build"></div>
+    <script>
+        const container = document.querySelector(".js-content-container-build");
+        
+
+        function img(src,extra,des){
+            return "<img src="+src+" "+extra+" title='"+des+"' alt='"+des+"'>";
+        }
+
+        function write(html_tags){
+            container.innerHTML += html_tags;
+            console.info(html_tags);
+        }
+
+        function div_start(class_n){
+            return "<div class='"+class_n+"'>";
+        }
+
+        function div_end(){
+            return "</div>";
+        }
+
+        function a(href_h,extra,contained_info){
+            return "<a href="+href_h+" "+extra+" title='"+href_h+"'>"+contained_info+"</a>";
+        }
+
+        function p(contained_info){
+            return "<p title='"+contained_info+"'>"+contained_info+"</p>"
+        }
+
+        function build_site(){
+            write(div_start("global-site-toolbar") +
+            a("/","",img("static/verton_funk_light.svg","","Verton Funk")) +
+            "<hr class='toolbar-divider'>" +
+            div_end() +
+            div_start("about-verton-funk-paragraph-container") +
+            p("Verton Funk is an online service for listening to music.") +
+            div_end() +
+            div_start("trending-section") +
+            div_end()
+        
+        
+            );
+            
+            
+        }
+
+        
+
+        
+
+        
+    </script>
+</body>
+</html>
