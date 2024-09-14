@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://192.168.86.32/listen/Wasted -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verton Funk | Listening to Wasted</title>
+    <link rel="icon" type="image/x-icon" href="../static/verton_funk.svg">
+    <style>body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}</style>
+    <meta name="description" content="Verton Funk | Listen to Wasted on Verton Funk!">
+</head>
+<body onload="build_site();">
+    <noscript class="noscript-error" style="font-weight:bolder;font-size:15px;color:red;">PLEASE TURN ON JAVASCRIPT TO USE VERTON FUNK</noscript>
+    <div class="js-content-container-build"><div class="global-site-toolbar"><a href="andyssites.github.io/verton_funk/" title="/"><img src="./Wasted_files/verton_funk_light.svg" title="Verton Funk" alt="Verton Funk"></a><hr class="toolbar-divider"></div><div class="song-data"><img src="./Wasted_files/Wasted.png" style="border-radius:15px;height:175px;" title="Wasted" alt="Wasted"><br class="br-content-divider"><h2 class="song-name" '="" title="Wasted">Wasted</h2></div><div class="audio-container"><audio controls=""><source src="../static/songs/Wasted.wav" type="audio/wav" title="Wasted"></audio></div><br><div class="artist-container"><span class="undefined">undefined</span></div></div>
+    <script>
+        const container = document.querySelector(".js-content-container-build");
+        
+
+        function img(src,extra,des){
+            return "<img src='"+src+"' "+extra+" title='"+des+"' alt='"+des+"'>";
+        }
+
+        function write(html_tags){
+            container.innerHTML += html_tags;
+            console.info(html_tags);
+        }
+
+        function div_start(class_n){
+            return "<div class='"+class_n+"'>";
+        }
+
+        function div_end(){
+            return "</div>";
+        }
+
+        function a(href_h,extra,contained_info){
+            return "<a href="+href_h+" "+extra+" title='"+href_h+"'>"+contained_info+"</a>";
+        }
+
+        function p(contained_info){
+            return "<p title='"+contained_info+"'>"+contained_info+"</p>";
+        }
+
+        function span(contained_info,h_class){
+            return "<span class='"+h_class+"'>"+contained_info+"</span>";
+        }
+
+        function h2(contained_info,h_class){
+            return "<h2 class='"+h_class+"'' title='"+contained_info+"'>"+contained_info+"</h2>";
+        }
+
+        function audio(source,h_class){
+            return "<audio controls><source src='"+source+"' type='audio/wav' title='Wasted'></audio>";
+        }
+
+        function build_site(){
+            write(div_start("global-site-toolbar") +
+            a("/","",img("../static/verton_funk_light.svg","","Verton Funk")) +
+            "<hr class='toolbar-divider'>" +
+            div_end() +
+            
+            div_start("song-data") +
+            img("../static/album_art/Wasted.png","style='border-radius:15px;height:175px;'","Wasted") +
+            "<br class='br-content-divider'>" +
+            h2("Wasted","song-name") +
+            div_end() +
+            div_start("audio-container") +
+            audio("../static/songs/Wasted.wav","song-audio") +
+            div_end() +
+            "<br>" +
+            div_start("artist-container") +
+            span({"Lucid%20Dreams":"Juice%20WRLD"}["Wasted"]) +
+            div_end()
+        
+        
+            );
+            
+            
+        }
+
+        
+
+        
+
+        
+    </script>
+
+</body></html>
